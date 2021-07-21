@@ -1,0 +1,30 @@
+
+<h1>Books</h1>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= book.author %></td>
+        <td><%= link_to 'Show', book, class:"btn btn-outline-secondary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_book_path(book), class:"btn btn-outline-info btn-sm" %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book', new_book_path, class:"btn btn-secondary" %>
